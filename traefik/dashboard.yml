@@ -27,7 +27,7 @@ spec:
   #tls:
   #  certResolver: ali
   #  domains:
-  #  - main: "*.qikqiak.com"
+  #  - main: "*.dev.com"
   # tls:
   #   secretName: who-tls
 # ---
