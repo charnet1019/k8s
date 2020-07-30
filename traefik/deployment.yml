@@ -5,6 +5,7 @@ metadata:
   namespace: kube-system
   labels:
     app: traefik
+
 spec:
   selector:
     matchLabels:
@@ -16,7 +17,7 @@ spec:
       labels:
         app: traefik
     spec:
-      serviceAccountName: traefik
+      serviceAccountName: traefik-ingress-controller
       tolerations:
       - operator: "Exists"
       nodeSelector:
@@ -35,21 +36,21 @@ spec:
         - name: websecure
           containerPort: 443
           hostPort: 443
-        #- name: mongo
-        #  hostPort: 27017
-        #  containerPort: 27017
-        #- name: postgres
-        #  hostPort: 5432
-        #  containerPort: 5432
-        #- name: redis
-        #  hostPort: 6379
-        #  containerPort: 6379
+        - name: mongo
+          hostPort: 27017
+          containerPort: 27017
+        - name: postgres
+          hostPort: 5432
+          containerPort: 5432
+        - name: redis
+          hostPort: 6379
+          containerPort: 6379
         args:
         - --entryPoints.web.address=:80
         - --entryPoints.websecure.address=:443
-        #- --entryPoints.mongo.address=:27017
-        #- --entryPoints.postgres.address=:5432
-        #- --entryPoints.redis.address=:6379
+        - --entryPoints.mongo.address=:27017
+        - --entryPoints.postgres.address=:5432
+        - --entryPoints.redis.address=:6379
         - --api=true
         - --api.dashboard=true
         - --ping=true
