@@ -1,11 +1,11 @@
-### 通过设置环境变量访问etcd服务
+## 通过设置环境变量访问etcd服务
 
-
++ 查看etcd成员
 ```
 [root@master01 traefik]# etcdctl member list
 e99d560084d446c8, started, master01.dev.com, https://192.168.2.10:2380, https://192.168.2.10:2379, false
 ```
-
++ 查看所有的key
 ---
 ```
 [root@master01 traefik]# etcdctl --prefix --keys-only=true get /
