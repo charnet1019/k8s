@@ -4,9 +4,9 @@
 ```
 [root@master01 traefik]# etcdctl member list
 e99d560084d446c8, started, master01.dev.com, https://192.168.2.10:2380, https://192.168.2.10:2379, false
-```
-+ 查看所有的key
+```  
 ---
++ 查看所有的key
 ```
 [root@master01 traefik]# etcdctl --prefix --keys-only=true get /
 /registry/apiextensions.k8s.io/customresourcedefinitions/bgpconfigurations.crd.projectcalico.org
@@ -20,7 +20,7 @@ e99d560084d446c8, started, master01.dev.com, https://192.168.2.10:2380, https://
 /registry/apiextensions.k8s.io/customresourcedefinitions/felixconfigurations.crd.projectcalico.org
 ...
 ```  
-
+---  
 + 获取所有namespaces
 ```
 [root@master01 traefik]# etcdctl get /registry/namespaces --prefix -w json | jq .
